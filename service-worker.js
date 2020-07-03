@@ -11,7 +11,8 @@ const urlsToCache = [
     "/js/materialize.min.js",
     "/js/nav.js",
     "/js/api.js",
-    "/icon.png"
+    "/img/icon.png",
+    "/img/notif.png"
 ];
 
 self.addEventListener("install", function (event) {
@@ -55,5 +56,27 @@ self.addEventListener("activate", function (event) {
                 })
             );
         })
+    );
+});
+
+//Response Push Notification
+self.addEventListener('push', function (event) {
+    var body;
+    if (event.data) {
+        body = event.data.text();
+    } else {
+        body = 'Push message no payload';
+    }
+    var options = {
+        body: body,
+        icon: 'img/notif.png',
+        vibrate: [100, 50, 100],
+        data: {
+            dateOfArrival: Date.now(),
+            primaryKey: 1
+        }
+    };
+    event.waitUntil(
+        self.registration.showNotification('Push Notification', options)
     );
 });

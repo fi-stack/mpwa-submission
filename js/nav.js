@@ -43,6 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4) {
                 const content = document.querySelector("#body-content");
+
+                if (page === "home") {
+                    getTeams();
+                } else if (page === "saved") {
+                    getSavedTeams();
+                }
+
                 if (this.status == 200) {
                     content.innerHTML = xhttp.responseText;
                 } else if (this.status == 404) {
