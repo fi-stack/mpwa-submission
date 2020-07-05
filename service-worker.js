@@ -1,16 +1,20 @@
 const CACHE_NAME = "submission-pwa";
 const urlsToCache = [
     "/",
+    "/manifest.json",
     "/nav.html",
     "/index.html",
     "/team.html",
     "/pages/home.html",
     "/pages/about.html",
     "/pages/contact.html",
+    "/pages/saved.html",
     "/css/materialize.min.css",
     "/js/materialize.min.js",
     "/js/nav.js",
     "/js/api.js",
+    "/js/idb.js",
+    "/js/db.js",
     "/img/icon.png",
     "/img/notif.png"
 ];
